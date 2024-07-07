@@ -1,0 +1,45 @@
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("Streets Life", "Ocean")
+
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Main")
+
+local tapping = false
+
+MainSection:NewToggle("Soon", "Soon", function(state)
+    tapping = state
+    while tapping do
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Tap"):FireServer()
+        wait(0.01)
+    end
+end)
+
+MainSection:NewButton("Admin commands may not work use on own risk", "Click on this to get admin commands", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player")
+
+PlayerSection:NewSlider("Walkspeed", "Choose how fast you want to be", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewSlider("JumpPower", "Choose how high you want to jump", 350, 50, function(s) -- 350 (MaxValue) | 50 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+local Teleport = Window:NewTab("Teleport")
+local TeleportSection = Teleport:NewSection("Teleport")
+
+TeleportSection:NewButton("Bank", "Click on this to be teleported to the bank", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-780.44928, 3.27121496, 120.054962, -0.996343315, -7.15933535e-10, 0.0854401663, 1.55843205e-09, 1, 2.65526978e-08, -0.0854401663, 2.65887543e-08, -0.996343315)
+end)
+
+TeleportSection:NewButton("Za Job", "Click on this to be teleported to the Za job", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-450.954376, 3.27215576, 201.083359, 0.659175277, -1.90956975e-08, 0.751989305, 6.39148556e-09, 1, 1.97909582e-08, -0.751989305, -8.23938162e-09, 0.659175277)
+end)
+
+TeleportSection:NewButton("Za buyer", "Click on this to be teleported to the Za buyer", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(soon)
+end)
